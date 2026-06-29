@@ -1,14 +1,14 @@
-import mongoose, { Schema, model, Document } from "mongoose";
+import mongoose, { Schema, Document } from "mongoose";
 
-interface IMenu extends Document {
-  foodName: string;
+interface IFoodItem extends Document {
+  name: string;
   price: number;
-  ratings: string;
+  ratings: number;
   imageUrl: string;
 }
 
-const productSchema = new Schema<IMenu>({
-  foodName: {
+const foodItemSchema = new Schema<IFoodItem>({
+  name: {
     type: String,
     required: true,
   },
@@ -18,14 +18,17 @@ const productSchema = new Schema<IMenu>({
     min: 0,
   },
   ratings: {
-    type: String,
+    type: Number,
     required: true,
+    min: 1,
+    max: 10,
   },
   imageUrl: {
     type: String,
+    required: true,
   },
 });
 
-const Menu = mongoose.model<IMenu>("Menu", productSchema);
+const Product = mongoose.model<IFoodItem>("Product", foodItemSchema);
 
-export default Menu;
+export default Product;
