@@ -1,0 +1,26 @@
+<%- include("../partials/header") %>
+
+<h1>Add item to my food menu!</h1>
+<form action="">
+  <label for="food">Name</label>
+  <input
+    type="text"
+    name="foodName"
+    id="food-item"
+    placeholder="Enter item name here..."
+    required
+  />
+  <label for="image-url">Image URL</label>
+  <input
+    type="url"
+    name="imageUrl"
+    id="image-url"
+    placeholder="Enter image link here..."
+    required
+  />
+  <label for="ratings">Ratings (1-5)</label>
+  <input type="range" name="ratings" id="ratings" min="1" max="5" step="0.1" />
+  <button>Save</button>
+</form>
+
+<%- include("../partials/footer") %>
