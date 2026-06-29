@@ -1,10 +1,14 @@
-import express, { Application, Request, Response } from "express";
+import express, {
+  type Application,
+  type Request,
+  type Response,
+} from "express";
 const app: Application = express();
-import path from "path"; //  Added missing path import
+import path from "path";
 import mongoose from "mongoose";
+import { MONGO_URL } from "./constants";
 
 // Configuration & Middleware
-
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
@@ -13,9 +17,8 @@ app.use(express.urlencoded({ extended: true })); // for form submissions
 app.use(express.static(path.join(__dirname, "public")));
 
 // Database Connection
-
 mongoose
-  .connect("mongodb://127.0.0.1:27017/farmStand")
+  .connect(MONGO_URL)
   .then(() => {
     console.log("MONGO CONNECTION OPEN!");
   })
