@@ -17,6 +17,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // for form submissions
 app.use(express.static(path.join(__dirname, "..", "public")));
 
+app.get("/", (req: Request, res: Response) => {
+  res.render("index");
+});
 app.use("/food-items", foodItemsRouter);
 
 // Database Connection
@@ -29,10 +32,6 @@ mongoose
     console.log("OH NO MONGO CONNECTION ERROR!!!");
     console.log(err);
   });
-
-app.get("/", (req: Request, res: Response) => {
-  res.json({ message: "Hello from Express with TypeScript!" });
-});
 
 //  Added a server listener
 const PORT = 3000;
