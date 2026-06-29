@@ -29,6 +29,6 @@ const foodItemSchema = new Schema<IFoodItem>({
   },
 });
 
-const Product = mongoose.model<IFoodItem>("Product", foodItemSchema);
+const FoodItem = mongoose.model<IFoodItem>("FoodItem", foodItemSchema);
 
-export default Product;
+export default FoodItem;
