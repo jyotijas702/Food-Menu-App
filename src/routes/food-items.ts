@@ -3,9 +3,7 @@ import { Router, Request, Response } from "express";
 const router = Router();
 
 router.get("/", async (req: Request, res: Response) => {
-  res.json({
-    message: "Hello from food items router!!",
-  });
+  res.render("food-items/index", {});
 });
 
 export default router;

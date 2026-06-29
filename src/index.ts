@@ -15,7 +15,7 @@ app.set("view engine", "ejs");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // for form submissions
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "..", "public")));
 
 app.use("/food-items", foodItemsRouter);
 
