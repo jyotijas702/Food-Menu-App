@@ -1,11 +1,7 @@
-import mongoose, { Schema, Document } from "mongoose";
+import mongoose, { Document, Schema } from "mongoose";
+import { FoodItem } from "../types/food-item";
 
-interface IFoodItem extends Document {
-  name: string;
-  price: number;
-  ratings: number;
-  imageUrl: string;
-}
+interface IFoodItem extends Document, FoodItem {}
 
 const foodItemSchema = new Schema<IFoodItem>({
   name: {
@@ -21,7 +17,7 @@ const foodItemSchema = new Schema<IFoodItem>({
     type: Number,
     required: true,
     min: 1,
-    max: 10,
+    max: 5,
   },
   imageUrl: {
     type: String,
@@ -29,6 +25,6 @@ const foodItemSchema = new Schema<IFoodItem>({
   },
 });
 
-const FoodItem = mongoose.model<IFoodItem>("FoodItem", foodItemSchema);
+const FoodItemModel = mongoose.model<IFoodItem>("FoodItem", foodItemSchema);
 
-export default FoodItem;
+export default FoodItemModel;
