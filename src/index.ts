@@ -3,11 +3,11 @@ import express, {
   type Request,
   type Response,
 } from "express";
-const app: Application = express();
-import path from "path";
 import mongoose from "mongoose";
+import path from "path";
 import { MONGO_URL } from "./constants";
 import foodItemsRouter from "./routes/food-items";
+const app: Application = express();
 
 // Configuration & Middleware
 app.set("views", path.join(__dirname, "views"));
