@@ -1,15 +1,19 @@
 <%- include("../partials/header") %>
 
 <h1>Add item to my food menu!</h1>
-<form action="">
+<form action="/food-items" method="POST">
   <label for="food">Name</label>
   <input
     type="text"
-    name="foodName"
+    name="name"
     id="food-item"
     placeholder="Enter item name here..."
     required
   />
+
+ <label for="price">Price</label>
+<input type="number" name="price" id="price" placeholder="Enter price..." required />
+
   <label for="image-url">Image URL</label>
   <input
     type="url"
